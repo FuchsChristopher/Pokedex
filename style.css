@@ -1,13 +1,30 @@
 body {
     margin: 0;
-}
-
-#pokedex {
     font-family: 'Open Sans';
     font-style: italic;
     font-weight: 700;
+}
+
+#pokedex {
     min-height: 50vh;
-    background-color: rgb(219, 33 ,33);
+    background-color: #FB6C6C;
     color: white;
     display: flex;
+    padding: 24px;
+}
+
+.infoPokemon {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    margin-top: -40px;
+    min-height: 100px;
+}
+
+#pokemonImage {
+    width: 325px;
+    position: absolute;
+    top: 125px;
 }

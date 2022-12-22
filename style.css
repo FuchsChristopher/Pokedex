@@ -1,0 +1,13 @@
+body {
+    margin: 0;
+}
+
+#pokedex {
+    font-family: 'Open Sans';
+    font-style: italic;
+    font-weight: 700;
+    min-height: 50vh;
+    background-color: rgb(219, 33 ,33);
+    color: white;
+    display: flex;
+}

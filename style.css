@@ -5,12 +5,13 @@ body {
     font-weight: 700;
 }
 
-#pokedex {
+.pokedex {
     min-height: 50vh;
     background-color: #FB6C6C;
     color: white;
     display: flex;
     padding: 24px;
+    
 }
 
 .infoPokemon {
@@ -23,8 +24,17 @@ body {
     min-height: 100px;
 }
 
-#pokemonImage {
+.pokemonImage {
     width: 325px;
     position: absolute;
     top: 125px;
+}
+
+.pokemonPopUp {
+    width: 50%;
+}
+
+.mainSinglePokemon {
+    display:flex;
+    justify-content: center;
 }

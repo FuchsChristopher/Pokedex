@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
+    <script src="templates.js"></script>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="fonts.css"> 
+    <link rel="stylesheet" href="fonts.css">
     <title>Pokedex</title>
 </head>
+
 <body onload="loadPokemon()">
-    <div id="pokedex">
-        <h1 id="pokemonName">Name</h1>
+    <div id="mainSinglePokemon" class="mainSinglePokemon">
+        <div id="pokemonPopUp" class="pokemonPopUp">
+            <div id="pokedex" class="pokedex">
+                <h1 id="pokemonName">Name</h1>
+            </div>
+            <div class="infoPokemon">
+                <img id="pokemonImage" class="pokemonImage">
+            </div>
+        </div>
     </div>
-    <div class="infoPokemon">
-        <img id="pokemonImage">
-    </div>
-    
+
+
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-let Pokemon = [];
+let Pokemon;
 
 async function loadPokemon() {
     let url = 'https://pokeapi.co/api/v2/pokemon/charmander';
@@ -6,12 +6,16 @@ async function loadPokemon() {
     Pokemon = await response.json();
     console.log('Loaded Pokemon', Pokemon);
 
-    renderPokemon();
+    singlePokemon(Pokemon);
 }
 
 
-function renderPokemon() {
-    document.getElementById('pokemonName').innerHTML = Pokemon['name'];
-    document.getElementById('pokemonImage').src = Pokemon['sprites']['other']['official-artwork']['front_default'];
+function singlePokemon(Pokemon) {
+    let SinglePokemon = document.getElementById('mainSinglePokemon');
+    SinglePokemon.innerHTML = '';
     
-}
+    SinglePokemon.innerHTML = renderSinglePokemon(Pokemon);
+    //document.getElementById('pokemonName').innerHTML = Pokemon['name'];
+    //document.getElementById('pokemonImage').src = Pokemon['sprites']['other']['official-artwork']['front_default'];
+
+    }

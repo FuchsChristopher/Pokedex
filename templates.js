@@ -8,12 +8,12 @@ function renderSinglePokemon(Pokemon) {
         <div class="typePokemon"><p class="textType">${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p></div>
             <div class="singleImgPokemon">
                 <img src="${Pokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonImage">
-                <navbar class="stats">
-                    <a onclick="showAbout()" href="#">About</a>
-                    <a onclick="showBaseStats()" href="#">Base Stats</a>
-                    <a onclick="showEvolution()" href="#">Evolution</a>
-                    <a onclick="showMoves()" href="#">Moves</a>
-                </navbar>
+                <nav class="stats">
+                    <div class="hover"><a onclick="showAbout()" href="#">About</a></div>
+                    <div class="hover"><a onclick="showBaseStats()" href="#">Base Stats</a></div>
+                    <div class="hover"><a onclick="showEvolution()" href="#">Evolution</a></div>
+                    <div class="hover"><a onclick="showMoves()" href="#">Moves</a></div>
+                </nav>
                 <div class="border"></div>
         </div>
 </div>

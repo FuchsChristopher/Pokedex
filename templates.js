@@ -14,6 +14,7 @@ function renderSinglePokemon(Pokemon) {
                     <a onclick="showEvolution()" href="#">Evolution</a>
                     <a onclick="showMoves()" href="#">Moves</a>
                 </navbar>
+                <div class="border"></div>
         </div>
 </div>
 

@@ -15,6 +15,7 @@ function renderSinglePokemon(Pokemon) {
                     <div class="hover"><a onclick="showMoves()" href="#">Moves</a></div>
                 </nav>
                 <div class="border"></div>
+                <div id="aboutField1" class="aboutField1"></div>
         </div>
 </div>
 

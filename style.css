@@ -73,13 +73,14 @@ body {
 
 .border {
     margin-top: -2px;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px rgb(159, 159, 159);
     width: 92%;
 }
 
 .stats a {
     text-decoration: none;
-    color: gray;
+
+    color: rgb(159, 159, 159);
 }
 
 .stats a:hover {
@@ -94,4 +95,14 @@ nav div {
 .hover:hover {
     z-index: 2;
     border-bottom: solid 3px rgb(80, 80, 231)
+}
+
+.aboutField1 {
+    display: flex;
+    margin-top: 33px;
+    width: 92%;
+}
+
+.aboutField2 {
+    margin-right: 60px;
 }

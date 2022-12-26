@@ -9,10 +9,10 @@ function renderSinglePokemon(Pokemon) {
             <div class="singleImgPokemon">
                 <img src="${Pokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonImage">
                 <nav class="stats">
-                    <div class="hover"><a onclick="showAbout()" href="#">About</a></div>
-                    <div class="hover"><a onclick="showBaseStats()" href="#">Base Stats</a></div>
-                    <div class="hover"><a onclick="showEvolution()" href="#">Evolution</a></div>
-                    <div class="hover"><a onclick="showMoves()" href="#">Moves</a></div>
+                    <a id="linkAbout" onclick="showAbout()" href="#">About</a>
+                    <a onclick="showBaseStats()" href="#">Base Stats</a>
+                    <a onclick="showEvolution()" href="#">Evolution</a>
+                    <a onclick="showMoves()" href="#">Moves</a>
                 </nav>
                 <div class="border"></div>
                 <div id="aboutField1" class="aboutField1"></div>

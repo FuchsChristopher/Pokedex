@@ -34,7 +34,7 @@ body {
 }
 
 .pokemonPopUp {
-    width: 50%;
+    width: 34%;
 }
 
 .mainSinglePokemon {
@@ -68,7 +68,7 @@ body {
     display: flex;
     justify-content: space-between;
     width: 92%;
-    
+
 }
 
 .border {
@@ -77,22 +77,21 @@ body {
     width: 92%;
 }
 
-.stats a {
+a {
+    border-bottom: solid 3px transparent;
+    height: 60px;
     text-decoration: none;
-
     color: rgb(159, 159, 159);
 }
 
-.stats a:hover {
+a:hover {
     color: black;
+    z-index: 2;
+    border-bottom: solid 3px rgb(80, 80, 231)
 }
 
-nav div {
-    height: 60px;
-    border-bottom: solid 3px transparent;
-}
-
-.hover:hover {
+.hoverKeep {
+    color: black;
     z-index: 2;
     border-bottom: solid 3px rgb(80, 80, 231)
 }

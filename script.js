@@ -15,15 +15,15 @@ function singlePokemon(Pokemon) {
     SinglePokemon.innerHTML = '';
 
     SinglePokemon.innerHTML = renderSinglePokemon(Pokemon);
-    //document.getElementById('pokemonName').innerHTML = Pokemon['name'];
-    //document.getElementById('pokemonImage').src = Pokemon['sprites']['other']['official-artwork']['front_default'];
-
 }
 
 
 function showAbout() {
     let aboutPokemon = document.getElementById('aboutField1');
     aboutPokemon.innerHTML = '';
+
+    let linksabout = document.getElementById('linkAbout');
+    linksabout.classList.add('hoverKeep');
 
     aboutPokemon.innerHTML = `
     <div class="aboutField2"><p>${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</p>

@@ -25,16 +25,28 @@ function showAbout() {
     let linksabout = document.getElementById('linkAbout');
     linksabout.classList.add('hoverKeep');
 
-    aboutPokemon.innerHTML = `
-    <div class="aboutField2"><p>${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</p>
-    <p>${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</p>
-    <p>${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</p>
-    <p>${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</p>
-    </div>
-    <div><p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    <p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    <p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    <p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    </div>
-    `;
+    aboutPokemon.innerHTML = showAbout2();
+
+    let baseStats = document.getElementById('baseStatsField1');
+    baseStats.innerHTML = '';
+
+    let linkBaseStats = document.getElementById('linkBaseStats');
+    linkBaseStats.classList.remove('hoverKeep');
+}
+
+
+function showBaseStats() {
+    let baseStats = document.getElementById('baseStatsField1');
+    baseStats.innerHTML = '';
+
+    let linkBaseStats = document.getElementById('linkBaseStats');
+    linkBaseStats.classList.add('hoverKeep');
+
+    baseStats.innerHTML = baseStatsAndProgressbar();
+
+    let aboutPokemon = document.getElementById('aboutField1');
+    aboutPokemon.innerHTML = '';
+
+    let linksabout = document.getElementById('linkAbout');
+    linksabout.classList.remove('hoverKeep');
 }

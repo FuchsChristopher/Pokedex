@@ -104,4 +104,11 @@ a:hover {
 
 .aboutField2 {
     margin-right: 60px;
+} 
+
+.baseStatsField1 {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0px;
+    width: 92%;
 }

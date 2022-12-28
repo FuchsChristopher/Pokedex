@@ -52,6 +52,16 @@ body {
     margin-left: 25px;
 }
 
+.typePokemon2 {
+    margin-top: -37px;
+    background-color: hsl(240deg 7% 97% / 22%);
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    height: 3vh;
+    margin-left: 85px;
+}
+
 .textType {
     color: white;
     margin-top: 0px;
@@ -104,11 +114,23 @@ a:hover {
 
 .aboutField2 {
     margin-right: 60px;
-} 
+}
 
 .baseStatsField1 {
     display: flex;
     justify-content: space-between;
+    margin-top: -5px;
+    width: 92%;
+}
+
+.evolutionField1 {
+    display: flex;
+    margin-top: 5px;
+    width: 92%;
+}
+
+.movesField1 {
+    display: flex;
     margin-top: 0px;
     width: 92%;
 }

@@ -2,7 +2,8 @@ function renderSinglePokemon(Pokemon) {
     return `
     <div id="pokemonPopUp" class="pokemonPopUp">
     <div id="pokedex" class="pokemonPopUp2">
-        <h1 id="pokemonName">${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</h1>
+    <img class="closeImg" src="./img/x-mark-64.png" onclick="closeImg()">
+        <h1 id="pokemonName" class="pokemonName">${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</h1>
         <div class="currentId">#${('000' + Pokemon['id']).slice(1)}</div>
     </div>
         <div class="typePokemon">
@@ -28,6 +29,26 @@ function renderSinglePokemon(Pokemon) {
 </div>
 
     
+    `;
+}
+
+
+function renderAllPokemon(Pokemon) {
+    return `
+    <div class="allPokemonShow">
+        <div id="pokemonPopUp" class="pokemonAll">
+            <div onclick="openPopUp()" id="pokedex" class="pokemonAll2">
+                <h1 id="pokemonName">${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</h1>
+                <div class="currentId">#${('000' + Pokemon['id']).slice(1)}
+                </div>
+            </div>
+            <div class="typeAllPokemon">
+                <p class="textType">${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
+                <img onclick="openPopUp()" src="${Pokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
+                <div id="secondTypeforAll"></div>
+                </div>
+        </div>
+    </div>
     `;
 }
 

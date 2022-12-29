@@ -1,12 +1,29 @@
-let Pokemon;
+let Pokemon = [];
 
 async function loadPokemon() {
-    let url = 'https://pokeapi.co/api/v2/pokemon/charmander';
+    let url = `https://pokeapi.co/api/v2/pokemon/charmander`;
     let response = await fetch(url);
     Pokemon = await response.json();
     console.log('Loaded Pokemon', Pokemon);
 
     singlePokemon(Pokemon);
+    schowAllPokemon(Pokemon);
+}
+
+
+function openPopUp() {
+    let openPopUp = document.getElementById('mainSinglePokemon');
+    openPopUp.classList.remove('d-none');
+    let closeAllPokemon = document.getElementById('allPokemon');
+    closeAllPokemon.classList.add('d-none');
+}
+
+
+function closeImg() {
+    let closePopUp = document.getElementById('mainSinglePokemon');
+    closePopUp.classList.add('d-none');
+    let openAllPokemon = document.getElementById('allPokemon');
+    openAllPokemon.classList.remove('d-none');
 }
 
 
@@ -19,11 +36,31 @@ function singlePokemon(Pokemon) {
 }
 
 
+function schowAllPokemon(Pokemon) {
+    let allPokemon = document.getElementById('allPokemon');
+    allPokemon.innerHTML = '';
+
+    allPokemon.innerHTML += renderAllPokemon(Pokemon);
+    checkSecondTypeforAll(Pokemon);
+    
+}
+
+
 function checkSecondType(Pokemon) {
     let types = Pokemon['types'];
     if (types.length == 2) {
         secondType.classList.add('typePokemon2');
         document.getElementById('secondType').innerHTML = `
+        <p class="textType">${Pokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][1]['type']['name'].slice(1)}</p>
+        `;
+    }
+}
+
+function checkSecondTypeforAll(Pokemon) {
+    let types = Pokemon['types'];
+    if (types.length == 2) {
+        secondTypeforAll.classList.add('typePokemonAll');
+        document.getElementById('secondTypeforAll').innerHTML = `
         <p class="textType">${Pokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][1]['type']['name'].slice(1)}</p>
         `;
     }
@@ -133,15 +170,16 @@ function showMoves() {
 
     movesField1.innerHTML = `
     <div class="aboutField2">
-    <p>Species</p>
-    <p>Height</p>
-    <p>Weight</p>
-    <p>Abilities</p>
+    <p>${Pokemon['moves'][0]['move']['name']}</p>
+    <p>${Pokemon['moves'][1]['move']['name']}</p>
+    <p>${Pokemon['moves'][2]['move']['name']}</p>
+    <p>${Pokemon['moves'][3]['move']['name']}</p>
     </div>
-    <div><p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    <p>${Pokemon['height']}</p>
-    <p>${Pokemon['weight']}</p>
-    <p>${Pokemon['abilities'][0]['ability']['name'].charAt(0).toUpperCase() + Pokemon['abilities'][0]['ability']['name'].slice(1)}, ${Pokemon['abilities'][1]['ability']['name'].charAt(0).toUpperCase() + Pokemon['abilities'][1]['ability']['name'].slice(1)}</p>
+    <div>
+    <p>${Pokemon['moves'][4]['move']['name']}</p>
+    <p>${Pokemon['moves'][5]['move']['name']}</p>
+    <p>${Pokemon['moves'][6]['move']['name']}</p>
+    <p>${Pokemon['moves'][7]['move']['name']}</p>
     </div>
     `;
     clearTheFields4();

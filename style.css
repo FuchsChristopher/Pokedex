@@ -6,7 +6,7 @@ body {
 }
 
 .pokemonPopUp2 {
-    min-height: 50vh;
+    min-height: 55vh;
     background-color: #FB6C6C;
     color: white;
     display: flex;
@@ -23,14 +23,24 @@ body {
     background-color: white;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    margin-top: 283px;
+    margin-top: 242px;
     min-height: 100px;
 }
 
+.pokemonName {
+    margin-top: 62px;
+    margin-left: -150px;
+}
+
 .pokemonImage {
-    width: 325px;
+    width: 233px;
     position: absolute;
-    top: 125px;
+    top: 207px;
+}
+
+.closeImg {
+    height: 26px;
+    cursor: pointer;
 }
 
 .pokemonPopUp {
@@ -40,6 +50,7 @@ body {
 .mainSinglePokemon {
     display: flex;
     justify-content: center;
+    height: 100vh;
 }
 
 .typePokemon {
@@ -71,6 +82,7 @@ body {
     display: flex;
     align-items: center;
     height: 16vh;
+    margin-top: 37px;
 }
 
 .stats {
@@ -133,4 +145,50 @@ a:hover {
     display: flex;
     margin-top: 0px;
     width: 92%;
+}
+
+.d-none {
+    display: none;
+}
+
+.allPokemonShow {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemonAll2 {
+    min-height: 35vh;
+    background-color: #FB6C6C;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+    border-radius: 40px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.typeAllPokemon {
+    margin-top: -238px;
+    background-color: hsl(240deg 7% 97% / 22%);
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    height: 3vh;
+    margin-left: 25px;
+}
+
+.pokemonAllImage {
+    width: 181px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.typePokemonAll {
+    background-color: hsl(240deg 7% 97% / 22%);
+    border-radius: 20px;
+    width: 70px;
+    text-align: center;
+    height: 3vh;
 }

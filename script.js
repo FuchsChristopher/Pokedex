@@ -1,17 +1,25 @@
 let Pokemon = [];
+let currentPokemon = [];
 
 async function loadPokemon() {
-    let url = `https://pokeapi.co/api/v2/pokemon/charmander`;
+    let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`;
     let response = await fetch(url);
     Pokemon = await response.json();
-    console.log('Loaded Pokemon', Pokemon);
+    for (let i = 0; i < Pokemon['results'].length; ++i) {
+        let allPokemon = Pokemon['results'][i]['url'];
+        let individualResponse = await fetch(allPokemon);
+        let currentPokemon = await individualResponse.json();
 
-    singlePokemon(Pokemon);
-    schowAllPokemon(Pokemon);
+        schowAllPokemon(currentPokemon);
+        singlePokemon(currentPokemon);
+        console.log('Loaded Pokemon', currentPokemon);
+    }
+
 }
 
 
-function openPopUp() {
+function openPopUp(currentPokemon) {
+    
     let openPopUp = document.getElementById('mainSinglePokemon');
     openPopUp.classList.remove('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
@@ -27,50 +35,49 @@ function closeImg() {
 }
 
 
-function singlePokemon(Pokemon) {
+function singlePokemon(currentPokemon) {
     let SinglePokemon = document.getElementById('mainSinglePokemon');
     SinglePokemon.innerHTML = '';
 
-    SinglePokemon.innerHTML = renderSinglePokemon(Pokemon);
-    checkSecondType(Pokemon);
+    SinglePokemon.innerHTML = renderSinglePokemon(currentPokemon);
+    checkSecondType(currentPokemon);
 }
 
 
-function schowAllPokemon(Pokemon) {
+function schowAllPokemon(currentPokemon) {
     let allPokemon = document.getElementById('allPokemon');
     allPokemon.innerHTML = '';
 
-    allPokemon.innerHTML += renderAllPokemon(Pokemon);
-    checkSecondTypeforAll(Pokemon);
-    
+        allPokemon.innerHTML += renderAllPokemon(currentPokemon);
+        checkSecondTypeforAll(currentPokemon);
 }
 
 
-function checkSecondType(Pokemon) {
-    let types = Pokemon['types'];
+function checkSecondType(currentPokemon) {
+    let types = currentPokemon['types'];
     if (types.length == 2) {
         secondType.classList.add('typePokemon2');
         document.getElementById('secondType').innerHTML = `
-        <p class="textType">${Pokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][1]['type']['name'].slice(1)}</p>
+        <p class="textType">${currentPokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][1]['type']['name'].slice(1)}</p>
         `;
     }
 }
 
-function checkSecondTypeforAll(Pokemon) {
-    let types = Pokemon['types'];
+function checkSecondTypeforAll(currentPokemon) {
+    let types = currentPokemon['types'];
     if (types.length == 2) {
         secondTypeforAll.classList.add('typePokemonAll');
         document.getElementById('secondTypeforAll').innerHTML = `
-        <p class="textType">${Pokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][1]['type']['name'].slice(1)}</p>
+        <p class="textType">${currentPokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][1]['type']['name'].slice(1)}</p>
         `;
     }
 }
 
 
-function showAbout() {
+function showAbout(currentPokemon) {
     let aboutPokemon = document.getElementById('aboutField1');
     aboutPokemon.innerHTML = '';
-    aboutPokemon.innerHTML = showAbout2();
+    aboutPokemon.innerHTML = showAbout2(currentPokemon);
 
     clearTheFields1();
 
@@ -100,10 +107,10 @@ function clearTheFields1() {
 }
 
 
-function showBaseStats() {
+function showBaseStats(currentPokemon) {
     let baseStats = document.getElementById('baseStatsField1');
     baseStats.innerHTML = '';
-    baseStats.innerHTML = baseStatsAndProgressbar();
+    baseStats.innerHTML = baseStatsAndProgressbar(currentPokemon);
 
     clearTheFields2();
     addAndRemoveHover2();
@@ -131,11 +138,11 @@ function clearTheFields2() {
 }
 
 
-function showEvolution() {
+function showEvolution(currentPokemon) {
     let evolutionField1 = document.getElementById('evolutionField1');
     evolutionField1.innerHTML = '';
 
-    evolutionField1.innerHTML = evolutionExample();
+    evolutionField1.innerHTML = evolutionExample(currentPokemon);
 
     clearTheFields3();
     addAndRemoveHover3();
@@ -164,24 +171,11 @@ function clearTheFields3() {
 }
 
 
-function showMoves() {
+function showMoves(currentPokemon) {
     let movesField1 = document.getElementById('movesField1');
     movesField1.innerHTML = '';
 
-    movesField1.innerHTML = `
-    <div class="aboutField2">
-    <p>${Pokemon['moves'][0]['move']['name']}</p>
-    <p>${Pokemon['moves'][1]['move']['name']}</p>
-    <p>${Pokemon['moves'][2]['move']['name']}</p>
-    <p>${Pokemon['moves'][3]['move']['name']}</p>
-    </div>
-    <div>
-    <p>${Pokemon['moves'][4]['move']['name']}</p>
-    <p>${Pokemon['moves'][5]['move']['name']}</p>
-    <p>${Pokemon['moves'][6]['move']['name']}</p>
-    <p>${Pokemon['moves'][7]['move']['name']}</p>
-    </div>
-    `;
+    movesField1.innerHTML = showMoves(currentPokemon);
     clearTheFields4();
     addAndRemoveHover4();
 }

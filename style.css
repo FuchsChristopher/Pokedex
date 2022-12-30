@@ -151,7 +151,13 @@ a:hover {
     display: none;
 }
 
-.allPokemonShow {
+/*.allPokemonShow {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}*/
+
+.allPokemon {
     flex-wrap: wrap;
     display: flex;
     justify-content: center;

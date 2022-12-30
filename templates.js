@@ -1,18 +1,18 @@
-function renderSinglePokemon(Pokemon) {
+function renderSinglePokemon(currentPokemon) {
     return `
     <div id="pokemonPopUp" class="pokemonPopUp">
     <div id="pokedex" class="pokemonPopUp2">
     <img class="closeImg" src="./img/x-mark-64.png" onclick="closeImg()">
-        <h1 id="pokemonName" class="pokemonName">${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</h1>
-        <div class="currentId">#${('000' + Pokemon['id']).slice(1)}</div>
+        <h1 id="pokemonName" class="pokemonName">${currentPokemon['name'].charAt(0).toUpperCase() + currentPokemon['name'].slice(1)}</h1>
+        <div class="currentId">#${('000' + currentPokemon['id']).slice(-3)}</div>
     </div>
         <div class="typePokemon">
-        <p class="textType">${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
+        <p class="textType">${currentPokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][0]['type']['name'].slice(1)}</p>
         <div id="secondType">
         </div>
         </div>
             <div class="singleImgPokemon">
-                <img src="${Pokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonImage">
+                <img src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonImage">
                 <nav class="stats">
                     <a id="linkAbout" onclick="showAbout()" href="#">About</a>
                     <a id="linkBaseStats"onclick="showBaseStats()" href="#">Base Stats</a>
@@ -33,18 +33,18 @@ function renderSinglePokemon(Pokemon) {
 }
 
 
-function renderAllPokemon(Pokemon) {
+function renderAllPokemon(currentPokemon) {
     return `
     <div class="allPokemonShow">
         <div id="pokemonPopUp" class="pokemonAll">
             <div onclick="openPopUp()" id="pokedex" class="pokemonAll2">
-                <h1 id="pokemonName">${Pokemon['name'].charAt(0).toUpperCase() + Pokemon['name'].slice(1)}</h1>
-                <div class="currentId">#${('000' + Pokemon['id']).slice(1)}
+                <h1 id="pokemonName">${currentPokemon['name'].charAt(0).toUpperCase() + currentPokemon['name'].slice(1)}</h1>
+                <div class="currentId">#${('000' + currentPokemon['id']).slice(-3)}
                 </div>
             </div>
             <div class="typeAllPokemon">
-                <p class="textType">${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-                <img onclick="openPopUp()" src="${Pokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
+                <p class="textType">${currentPokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][0]['type']['name'].slice(1)}</p>
+                <img onclick="openPopUp()" src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
                 <div id="secondTypeforAll"></div>
                 </div>
         </div>
@@ -53,7 +53,7 @@ function renderAllPokemon(Pokemon) {
 }
 
 
-function showAbout2() {
+function showAbout2(currentPokemon) {
     return `
     <div class="aboutField2">
     <p>Species</p>
@@ -61,64 +61,80 @@ function showAbout2() {
     <p>Weight</p>
     <p>Abilities</p>
     </div>
-    <div><p>${Pokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + Pokemon['types'][0]['type']['name'].slice(1)}</p>
-    <p>${Pokemon['height']}</p>
-    <p>${Pokemon['weight']}</p>
-    <p>${Pokemon['abilities'][0]['ability']['name'].charAt(0).toUpperCase() + Pokemon['abilities'][0]['ability']['name'].slice(1)}, ${Pokemon['abilities'][1]['ability']['name'].charAt(0).toUpperCase() + Pokemon['abilities'][1]['ability']['name'].slice(1)}</p>
+    <div><p>${currentPokemon['types'][0]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][0]['type']['name'].slice(1)}</p>
+    <p>${currentPokemon['height']}</p>
+    <p>${currentPokemon['weight']}</p>
+    <p>${currentPokemon['abilities'][0]['ability']['name'].charAt(0).toUpperCase() + currentPokemon['abilities'][0]['ability']['name'].slice(1)}, ${currentPokemon['abilities'][1]['ability']['name'].charAt(0).toUpperCase() + currentPokemon['abilities'][1]['ability']['name'].slice(1)}</p>
     </div>
     `;
 }
 
 
-function baseStatsAndProgressbar() {
+function baseStatsAndProgressbar(currentPokemon) {
     return `
     <div class="baseStatsField2">
-    <p>${Pokemon['stats'][0]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][0]['stat']['name'].slice(1)}</p>
-    <p>${Pokemon['stats'][1]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][1]['stat']['name'].slice(1)}</p>
-    <p>${Pokemon['stats'][2]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][2]['stat']['name'].slice(1)}</p>
-    <p>${Pokemon['stats'][3]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][3]['stat']['name'].slice(7)}</p>
-    <p>${Pokemon['stats'][4]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][4]['stat']['name'].slice(7)}</p>
-    <p>${Pokemon['stats'][5]['stat']['name'].charAt(0).toUpperCase() + Pokemon['stats'][5]['stat']['name'].slice(1)}</p>
+    <p>${currentPokemon['stats'][0]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][0]['stat']['name'].slice(1)}</p>
+    <p>${currentPokemon['stats'][1]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][1]['stat']['name'].slice(1)}</p>
+    <p>${currentPokemon['stats'][2]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][2]['stat']['name'].slice(1)}</p>
+    <p>${currentPokemon['stats'][3]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][3]['stat']['name'].slice(7)}</p>
+    <p>${currentPokemon['stats'][4]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][4]['stat']['name'].slice(7)}</p>
+    <p>${currentPokemon['stats'][5]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][5]['stat']['name'].slice(1)}</p>
     <p>Total</p>
     </div>
     <div>
-    <p>${Pokemon['stats'][0]['base_stat']}</p>
-    <p>${Pokemon['stats'][1]['base_stat']}</p>
-    <p>${Pokemon['stats'][2]['base_stat']}</p>
-    <p>${Pokemon['stats'][3]['base_stat']}</p> 
-    <p>${Pokemon['stats'][4]['base_stat']}</p>
-    <p>${Pokemon['stats'][5]['base_stat']}</p>
-    <p>${Pokemon['stats'][0]['base_stat']
-        + Pokemon['stats'][1]['base_stat']
-        + Pokemon['stats'][2]['base_stat']
-        + Pokemon['stats'][3]['base_stat']
-        + Pokemon['stats'][4]['base_stat']
-        + Pokemon['stats'][5]['base_stat']
+    <p>${currentPokemon['stats'][0]['base_stat']}</p>
+    <p>${currentPokemon['stats'][1]['base_stat']}</p>
+    <p>${currentPokemon['stats'][2]['base_stat']}</p>
+    <p>${currentPokemon['stats'][3]['base_stat']}</p> 
+    <p>${currentPokemon['stats'][4]['base_stat']}</p>
+    <p>${currentPokemon['stats'][0]['base_stat']
+        + currentPokemon['stats'][1]['base_stat']
+        + currentPokemon['stats'][2]['base_stat']
+        + currentPokemon['stats'][3]['base_stat']
+        + currentPokemon['stats'][4]['base_stat']
+        + currentPokemon['stats'][5]['base_stat']
         }</p>
     </div>
     <div>
-        <p><progress value="${Pokemon['stats'][0]['base_stat']}" max="100"></progress></p>
-        <p><progress value="${Pokemon['stats'][1]['base_stat']}" max="100"></progress></p>
-        <p><progress value="${Pokemon['stats'][2]['base_stat']}" max="100"></progress></p>
-        <p><progress value="${Pokemon['stats'][3]['base_stat']}" max="100"></progress></p>
-        <p><progress value="${Pokemon['stats'][4]['base_stat']}" max="100"></progress></p>
-        <p><progress value="${Pokemon['stats'][5]['base_stat']}" max="100"></progress></p> 
-        <p><progress value="${Pokemon['stats'][0]['base_stat']
-        + Pokemon['stats'][1]['base_stat']
-        + Pokemon['stats'][2]['base_stat']
-        + Pokemon['stats'][3]['base_stat']
-        + Pokemon['stats'][4]['base_stat']
-        + Pokemon['stats'][5]['base_stat']
+        <p><progress value="${currentPokemon['stats'][0]['base_stat']}" max="100"></progress></p>
+        <p><progress value="${currentPokemon['stats'][1]['base_stat']}" max="100"></progress></p>
+        <p><progress value="${currentPokemon['stats'][2]['base_stat']}" max="100"></progress></p>
+        <p><progress value="${currentPokemon['stats'][4]['base_stat']}" max="100"></progress></p>
+        <p><progress value="${currentPokemon['stats'][5]['base_stat']}" max="100"></progress></p> 
+        <p><progress value="${currentPokemon['stats'][0]['base_stat']
+        + currentPokemon['stats'][1]['base_stat']
+        + currentPokemon['stats'][2]['base_stat']
+        + currentPokemon['stats'][3]['base_stat']
+        + currentPokemon['stats'][4]['base_stat']
+        + currentPokemon['stats'][5]['base_stat']
         }" max="100"></progress></p>                    
     </div>
     `;
 }
 
 
-function evolutionExample() {
+function evolutionExample(currentPokemon) {
     return `
     <div class="aboutField2"><p>Base Experience</p>
     </div>
-    <div><p>${Pokemon['base_experience']}
+    <div><p>${currentPokemon['base_experience']}
+    `;
+}
+
+
+function showMoves2(currentPokemon) {
+    return `
+    <div class="aboutField2">
+    <p>${currentPokemon['moves'][0]['move']['name']}</p>
+    <p>${currentPokemon['moves'][1]['move']['name']}</p>
+    <p>${currentPokemon['moves'][2]['move']['name']}</p>
+    <p>${currentPokemon['moves'][3]['move']['name']}</p>
+    </div>
+    <div>
+    <p>${currentPokemon['moves'][4]['move']['name']}</p>
+    <p>${currentPokemon['moves'][5]['move']['name']}</p>
+    <p>${currentPokemon['moves'][6]['move']['name']}</p>
+    <p>${currentPokemon['moves'][7]['move']['name']}</p>
+    </div>
     `;
 }

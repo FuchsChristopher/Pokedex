@@ -1,59 +1,50 @@
-let Pokemon = [];
-let currentPokemon = [];
+let currentPokemon;
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`;
     let response = await fetch(url);
-    Pokemon = await response.json();
-    for (let i = 0; i < Pokemon['results'].length; ++i) {
-        let allPokemon = Pokemon['results'][i]['url'];
+    pokemon = await response.json();
+    for (let i = 0; i < pokemon['results'].length; ++i) {
+        let allPokemon = pokemon['results'][i]['url'];
         let individualResponse = await fetch(allPokemon);
-        let currentPokemon = await individualResponse.json();
-
-        schowAllPokemon(currentPokemon);
-        singlePokemon(currentPokemon);
+        currentPokemon = await individualResponse.json();
+        schowAllPokemon();
         console.log('Loaded Pokemon', currentPokemon);
     }
-
 }
 
 
-function openPopUp(currentPokemon) {
-    
+function openPopUp() {
     let openPopUp = document.getElementById('mainSinglePokemon');
     openPopUp.classList.remove('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
     closeAllPokemon.classList.add('d-none');
+    
+    let SinglePokemon = document.getElementById('mainSinglePokemon');
+    SinglePokemon.innerHTML = '';
+    
+    SinglePokemon.innerHTML = renderSinglePokemon();
+    checkSecondType();
 }
 
 
 function closeImg() {
     let closePopUp = document.getElementById('mainSinglePokemon');
     closePopUp.classList.add('d-none');
-    let openAllPokemon = document.getElementById('allPokemon');
-    openAllPokemon.classList.remove('d-none');
+    let closeAllPokemon = document.getElementById('allPokemon');
+    closeAllPokemon.classList.remove('d-none');
 }
 
 
-function singlePokemon(currentPokemon) {
-    let SinglePokemon = document.getElementById('mainSinglePokemon');
-    SinglePokemon.innerHTML = '';
-
-    SinglePokemon.innerHTML = renderSinglePokemon(currentPokemon);
-    checkSecondType(currentPokemon);
+function schowAllPokemon() {
+    let allPokemon = document.getElementById('allPokemon2');
+    allPokemon.innerHTML =
+    allPokemon.innerHTML += renderAllPokemon();
+    //checkSecondTypeforAll();
 }
 
 
-function schowAllPokemon(currentPokemon) {
-    let allPokemon = document.getElementById('allPokemon');
-    allPokemon.innerHTML = '';
-
-        allPokemon.innerHTML += renderAllPokemon(currentPokemon);
-        checkSecondTypeforAll(currentPokemon);
-}
-
-
-function checkSecondType(currentPokemon) {
+function checkSecondType() {
     let types = currentPokemon['types'];
     if (types.length == 2) {
         secondType.classList.add('typePokemon2');
@@ -63,7 +54,7 @@ function checkSecondType(currentPokemon) {
     }
 }
 
-function checkSecondTypeforAll(currentPokemon) {
+function checkSecondTypeforAll() {
     let types = currentPokemon['types'];
     if (types.length == 2) {
         secondTypeforAll.classList.add('typePokemonAll');
@@ -74,13 +65,12 @@ function checkSecondTypeforAll(currentPokemon) {
 }
 
 
-function showAbout(currentPokemon) {
+function showAbout() {
     let aboutPokemon = document.getElementById('aboutField1');
     aboutPokemon.innerHTML = '';
-    aboutPokemon.innerHTML = showAbout2(currentPokemon);
+    aboutPokemon.innerHTML = showAbout2();
 
     clearTheFields1();
-
     addAndRemoveHover1();
 }
 
@@ -107,10 +97,10 @@ function clearTheFields1() {
 }
 
 
-function showBaseStats(currentPokemon) {
+function showBaseStats() {
     let baseStats = document.getElementById('baseStatsField1');
     baseStats.innerHTML = '';
-    baseStats.innerHTML = baseStatsAndProgressbar(currentPokemon);
+    baseStats.innerHTML = baseStatsAndProgressbar();
 
     clearTheFields2();
     addAndRemoveHover2();
@@ -138,11 +128,11 @@ function clearTheFields2() {
 }
 
 
-function showEvolution(currentPokemon) {
+function showEvolution() {
     let evolutionField1 = document.getElementById('evolutionField1');
     evolutionField1.innerHTML = '';
 
-    evolutionField1.innerHTML = evolutionExample(currentPokemon);
+    evolutionField1.innerHTML = evolutionExample();
 
     clearTheFields3();
     addAndRemoveHover3();
@@ -171,11 +161,11 @@ function clearTheFields3() {
 }
 
 
-function showMoves(currentPokemon) {
+function showMoves() {
     let movesField1 = document.getElementById('movesField1');
     movesField1.innerHTML = '';
 
-    movesField1.innerHTML = showMoves(currentPokemon);
+    movesField1.innerHTML = showMoves2();
     clearTheFields4();
     addAndRemoveHover4();
 }

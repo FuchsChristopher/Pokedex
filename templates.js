@@ -1,4 +1,4 @@
-function renderSinglePokemon(currentPokemon) {
+function renderSinglePokemon() {
     return `
     <div id="pokemonPopUp" class="pokemonPopUp">
     <div id="pokedex" class="pokemonPopUp2">
@@ -33,12 +33,12 @@ function renderSinglePokemon(currentPokemon) {
 }
 
 
-function renderAllPokemon(currentPokemon) {
+function renderAllPokemon() {
     return `
-    <div class="allPokemonShow">
+    <div id="allPokemonShow" class="allPokemonShow">
         <div id="pokemonPopUp" class="pokemonAll">
-            <div onclick="openPopUp()" id="pokedex" class="pokemonAll2">
-                <h1 id="pokemonName">${currentPokemon['name'].charAt(0).toUpperCase() + currentPokemon['name'].slice(1)}</h1>
+            <div onclick="openPopUp()" class="pokemonAll2">
+                <h1 id="pokemonName" class="pokemonName">${currentPokemon['name'].charAt(0).toUpperCase() + currentPokemon['name'].slice(1)}</h1>
                 <div class="currentId">#${('000' + currentPokemon['id']).slice(-3)}
                 </div>
             </div>
@@ -53,7 +53,7 @@ function renderAllPokemon(currentPokemon) {
 }
 
 
-function showAbout2(currentPokemon) {
+function showAbout2() {
     return `
     <div class="aboutField2">
     <p>Species</p>
@@ -70,7 +70,7 @@ function showAbout2(currentPokemon) {
 }
 
 
-function baseStatsAndProgressbar(currentPokemon) {
+function baseStatsAndProgressbar() {
     return `
     <div class="baseStatsField2">
     <p>${currentPokemon['stats'][0]['stat']['name'].charAt(0).toUpperCase() + currentPokemon['stats'][0]['stat']['name'].slice(1)}</p>
@@ -87,6 +87,7 @@ function baseStatsAndProgressbar(currentPokemon) {
     <p>${currentPokemon['stats'][2]['base_stat']}</p>
     <p>${currentPokemon['stats'][3]['base_stat']}</p> 
     <p>${currentPokemon['stats'][4]['base_stat']}</p>
+    <p>${currentPokemon['stats'][5]['base_stat']}</p>
     <p>${currentPokemon['stats'][0]['base_stat']
         + currentPokemon['stats'][1]['base_stat']
         + currentPokemon['stats'][2]['base_stat']
@@ -99,6 +100,7 @@ function baseStatsAndProgressbar(currentPokemon) {
         <p><progress value="${currentPokemon['stats'][0]['base_stat']}" max="100"></progress></p>
         <p><progress value="${currentPokemon['stats'][1]['base_stat']}" max="100"></progress></p>
         <p><progress value="${currentPokemon['stats'][2]['base_stat']}" max="100"></progress></p>
+        <p><progress value="${currentPokemon['stats'][3]['base_stat']}" max="100"></progress></p>
         <p><progress value="${currentPokemon['stats'][4]['base_stat']}" max="100"></progress></p>
         <p><progress value="${currentPokemon['stats'][5]['base_stat']}" max="100"></progress></p> 
         <p><progress value="${currentPokemon['stats'][0]['base_stat']
@@ -113,7 +115,7 @@ function baseStatsAndProgressbar(currentPokemon) {
 }
 
 
-function evolutionExample(currentPokemon) {
+function evolutionExample() {
     return `
     <div class="aboutField2"><p>Base Experience</p>
     </div>
@@ -122,7 +124,7 @@ function evolutionExample(currentPokemon) {
 }
 
 
-function showMoves2(currentPokemon) {
+function showMoves2() {
     return `
     <div class="aboutField2">
     <p>${currentPokemon['moves'][0]['move']['name']}</p>

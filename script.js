@@ -9,15 +9,13 @@ async function loadPokemon() {
         let individualResponse = await fetch(allPokemon);
         currentPokemon = await individualResponse.json();
         pokemons.push(currentPokemon);
-
-        //console.log('Loaded Pokemon', currentPokemon);
     }
-
     for (let i = 0; i < pokemons.length; i++) {
         let allPokemon = document.getElementById('allPokemon2');
-        allPokemon.innerHTML += renderAllPokemon(pokemons,i);
-
+        allPokemon.innerHTML += renderAllPokemon(pokemons, i);
+        //checkSecondTypeforAll(pokemons, i);
     }
+    
 }
 
 
@@ -32,7 +30,6 @@ function openPopUp(i) {
     openPopUp.classList.remove('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
     closeAllPokemon.classList.add('d-none');
-
     checkSecondType(currentPokemon);
 }
 
@@ -45,9 +42,6 @@ function closeImg() {
 }
 
 
-    //checkSecondTypeforAll(currentPokemon);
-
-
 function checkSecondType(currentPokemon) {
     let types = currentPokemon['types'];
     if (types.length == 2) {
@@ -58,12 +52,12 @@ function checkSecondType(currentPokemon) {
     }
 }
 
-function checkSecondTypeforAll(currentPokemon) {
-    let types = currentPokemon['types'];
+function checkSecondTypeforAll(pokemons, i) {
+    let types = pokemons[i]['types'];
     if (types.length == 2) {
         secondTypeforAll.classList.add('typePokemonAll');
         document.getElementById('secondTypeforAll').innerHTML = `
-        <p class="textType">${currentPokemon['types'][1]['type']['name'].charAt(0).toUpperCase() + currentPokemon['types'][1]['type']['name'].slice(1)}</p>
+        <p class="textType">${pokemons[i]['types'][1]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][1]['type']['name'].slice(1)}</p>
         `;
     }
 }
@@ -171,7 +165,9 @@ function showMoves(i) {
     let movesField1 = document.getElementById('movesField1');
     movesField1.innerHTML = '';
     let currentPokemon = pokemons[i];
+
     movesField1.innerHTML = showMoves2(currentPokemon);
+
     clearTheFields4();
     addAndRemoveHover4();
 }

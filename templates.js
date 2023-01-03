@@ -131,12 +131,7 @@ function showMoves2(currentPokemon) {
     <p>${currentPokemon['moves'][1]['move']['name']}</p>
     <p>${currentPokemon['moves'][2]['move']['name']}</p>
     <p>${currentPokemon['moves'][3]['move']['name']}</p>
-    </div>
-    <div>
     <p>${currentPokemon['moves'][4]['move']['name']}</p>
-    <p>${currentPokemon['moves'][5]['move']['name']}</p>
-    <p>${currentPokemon['moves'][6]['move']['name']}</p>
-    <p>${currentPokemon['moves'][7]['move']['name']}</p>
     </div>
     `;
 }

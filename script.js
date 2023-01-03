@@ -1,4 +1,4 @@
-let currentPokemon;
+let pokemons = [];
 
 async function loadPokemon() {
     let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`;
@@ -8,23 +8,32 @@ async function loadPokemon() {
         let allPokemon = pokemon['results'][i]['url'];
         let individualResponse = await fetch(allPokemon);
         currentPokemon = await individualResponse.json();
-        schowAllPokemon();
-        console.log('Loaded Pokemon', currentPokemon);
+        pokemons.push(currentPokemon);
+
+        //console.log('Loaded Pokemon', currentPokemon);
+    }
+
+    for (let i = 0; i < pokemons.length; i++) {
+        let allPokemon = document.getElementById('allPokemon2');
+        allPokemon.innerHTML += renderAllPokemon(pokemons,i);
+
     }
 }
 
 
-function openPopUp() {
+function openPopUp(i) {
+    let SinglePokemon = document.getElementById('mainSinglePokemon');
+    SinglePokemon.innerHTML = '';
+    let currentPokemon = pokemons[i];
+
+    SinglePokemon.innerHTML = renderSinglePokemon(currentPokemon, i);
+
     let openPopUp = document.getElementById('mainSinglePokemon');
     openPopUp.classList.remove('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
     closeAllPokemon.classList.add('d-none');
-    
-    let SinglePokemon = document.getElementById('mainSinglePokemon');
-    SinglePokemon.innerHTML = '';
-    
-    SinglePokemon.innerHTML = renderSinglePokemon();
-    checkSecondType();
+
+    checkSecondType(currentPokemon);
 }
 
 
@@ -36,15 +45,10 @@ function closeImg() {
 }
 
 
-function schowAllPokemon() {
-    let allPokemon = document.getElementById('allPokemon2');
-    allPokemon.innerHTML =
-    allPokemon.innerHTML += renderAllPokemon();
-    //checkSecondTypeforAll();
-}
+    //checkSecondTypeforAll(currentPokemon);
 
 
-function checkSecondType() {
+function checkSecondType(currentPokemon) {
     let types = currentPokemon['types'];
     if (types.length == 2) {
         secondType.classList.add('typePokemon2');
@@ -54,7 +58,7 @@ function checkSecondType() {
     }
 }
 
-function checkSecondTypeforAll() {
+function checkSecondTypeforAll(currentPokemon) {
     let types = currentPokemon['types'];
     if (types.length == 2) {
         secondTypeforAll.classList.add('typePokemonAll');
@@ -65,10 +69,11 @@ function checkSecondTypeforAll() {
 }
 
 
-function showAbout() {
+function showAbout(i) {
     let aboutPokemon = document.getElementById('aboutField1');
     aboutPokemon.innerHTML = '';
-    aboutPokemon.innerHTML = showAbout2();
+    let currentPokemon = pokemons[i];
+    aboutPokemon.innerHTML = showAbout2(currentPokemon);
 
     clearTheFields1();
     addAndRemoveHover1();
@@ -97,10 +102,11 @@ function clearTheFields1() {
 }
 
 
-function showBaseStats() {
+function showBaseStats(i) {
     let baseStats = document.getElementById('baseStatsField1');
     baseStats.innerHTML = '';
-    baseStats.innerHTML = baseStatsAndProgressbar();
+    let currentPokemon = pokemons[i];
+    baseStats.innerHTML = baseStatsAndProgressbar(currentPokemon);
 
     clearTheFields2();
     addAndRemoveHover2();
@@ -128,11 +134,11 @@ function clearTheFields2() {
 }
 
 
-function showEvolution() {
+function showEvolution(i) {
     let evolutionField1 = document.getElementById('evolutionField1');
     evolutionField1.innerHTML = '';
-
-    evolutionField1.innerHTML = evolutionExample();
+    let currentPokemon = pokemons[i];
+    evolutionField1.innerHTML = evolutionExample(currentPokemon);
 
     clearTheFields3();
     addAndRemoveHover3();
@@ -161,11 +167,11 @@ function clearTheFields3() {
 }
 
 
-function showMoves() {
+function showMoves(i) {
     let movesField1 = document.getElementById('movesField1');
     movesField1.innerHTML = '';
-
-    movesField1.innerHTML = showMoves2();
+    let currentPokemon = pokemons[i];
+    movesField1.innerHTML = showMoves2(currentPokemon);
     clearTheFields4();
     addAndRemoveHover4();
 }

@@ -13,7 +13,7 @@ async function loadPokemon() {
     for (let i = 0; i < pokemons.length; i++) {
         let allPokemon = document.getElementById('allPokemon2');
         allPokemon.innerHTML += renderAllPokemon(pokemons, i);
-        //checkSecondTypeforAll(pokemons, i);
+        checkSecondTypeforAll(pokemons, i);
     }
     
 }
@@ -42,6 +42,19 @@ function closeImg() {
 }
 
 
+function closeSinglePokemon() {
+    let closePopUp = document.getElementById('mainSinglePokemon');
+    closePopUp.classList.add('d-none');
+    let closeAllPokemon = document.getElementById('allPokemon');
+    closeAllPokemon.classList.remove('d-none');
+}
+
+
+function doNotClose(event) {
+    event.stopPropagation();
+}
+
+
 function checkSecondType(currentPokemon) {
     let types = currentPokemon['types'];
     if (types.length == 2) {
@@ -55,8 +68,7 @@ function checkSecondType(currentPokemon) {
 function checkSecondTypeforAll(pokemons, i) {
     let types = pokemons[i]['types'];
     if (types.length == 2) {
-        secondTypeforAll.classList.add('typePokemonAll');
-        document.getElementById('secondTypeforAll').innerHTML = `
+        document.getElementById(`secondTypeforAll${i}`).innerHTML = `
         <p class="textType">${pokemons[i]['types'][1]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][1]['type']['name'].slice(1)}</p>
         `;
     }

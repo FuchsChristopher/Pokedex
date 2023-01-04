@@ -1,6 +1,6 @@
 function renderSinglePokemon(currentPokemon, i) {
     return `
-    <div id="pokemonPopUp" class="pokemonPopUp">
+    <div id="pokemonPopUp" class="pokemonPopUp" onclick="doNotClose(event)">
     <div id="pokedex" class="pokemonPopUp2">
     <img class="closeImg" src="./img/x-mark-64.png" onclick="closeImg()">
         <h1 id="pokemonName" class="pokemonName">${currentPokemon['name'].charAt(0).toUpperCase() + currentPokemon['name'].slice(1)}</h1>
@@ -45,7 +45,7 @@ function renderAllPokemon(pokemons, i) {
             <div class="typeAllPokemon">
                 <p class="textType">${pokemons[i]['types'][0]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][0]['type']['name'].slice(1)}</p>
                 <img src="${pokemons[i]['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
-                <div id="secondTypeforAll"></div>
+                <div id="secondTypeforAll${i}" class="typeAllPokemon2"></div>
                 </div>
         </div>
     </div>
@@ -131,7 +131,6 @@ function showMoves2(currentPokemon) {
     <p>${currentPokemon['moves'][1]['move']['name']}</p>
     <p>${currentPokemon['moves'][2]['move']['name']}</p>
     <p>${currentPokemon['moves'][3]['move']['name']}</p>
-    <p>${currentPokemon['moves'][4]['move']['name']}</p>
     </div>
     `;
 }

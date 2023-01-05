@@ -14,8 +14,8 @@ async function loadPokemon() {
         let allPokemon = document.getElementById('allPokemon2');
         allPokemon.innerHTML += renderAllPokemon(pokemons, i);
         checkSecondTypeforAll(pokemons, i);
-    }
-    
+        bgColorGreen(i);
+    }   
 }
 
 

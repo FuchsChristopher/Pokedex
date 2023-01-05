@@ -35,7 +35,7 @@ function renderSinglePokemon(currentPokemon, i) {
 
 function renderAllPokemon(pokemons, i) {
     return `
-    <div onclick="openPopUp(${i})" id="allPokemonShow" class="allPokemonShow">
+    <div onclick="openPopUp(${i})" id="allPokemonShow${i}" class="allPokemonShow ">
         <div id="pokemonPopUp" class="pokemonAll">
             <div class="pokemonAll2">
                 <h1 id="pokemonName" class="pokemonName">${pokemons[i]['name'].charAt(0).toUpperCase() + pokemons[i]['name'].slice(1)}</h1>

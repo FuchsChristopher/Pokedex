@@ -205,3 +205,18 @@ function clearTheFields4() {
     let evolutionField1 = document.getElementById('evolutionField1');
     evolutionField1.innerHTML = '';
 }
+
+
+
+function filterNames(pokemons) {
+    let search = document.getElementById('search').value
+    search = search.toLowerCase();  
+    let container = document.getElementById('allPokemon2');
+    container.innerHTML = '';
+    for (let i = 0; i < pokemons.length; i++) {
+        let name = pokemons[i];
+        if (name.toLocaleLowerCase().includes(search)) {
+            list.innerHTML += searchResult(name, i)
+        }
+    }
+}

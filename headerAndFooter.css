@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    justify-content: space-around;
+    height: 15vh;
+    align-items: center;
+    background-color: #dcf5f5;
+    margin-bottom: 15px;
+}
+
+.Text {
+    font-size: 30px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    height: 15vh;
+    align-items: center;
+    background-color: hsl(0deg 0% 13% / 77%);
+    margin-top: 15px;
+}

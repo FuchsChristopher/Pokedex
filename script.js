@@ -1,7 +1,8 @@
 let pokemons = [];
+let offset = 0;
 
 async function loadPokemon() {
-    let url = `https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20`;
+    let url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`;
     let response = await fetch(url);
     pokemon = await response.json();
     for (let i = 0; i < pokemon['results'].length; ++i) {
@@ -9,15 +10,36 @@ async function loadPokemon() {
         let individualResponse = await fetch(allPokemon);
         currentPokemon = await individualResponse.json();
         pokemons.push(currentPokemon);
+
     }
+    renderAllPokemon1(pokemons);
+}
+
+
+function renderAllPokemon1(pokemons) {
     for (let i = 0; i < pokemons.length; i++) {
         let allPokemon = document.getElementById('allPokemon2');
         allPokemon.innerHTML += renderAllPokemon(pokemons, i);
         checkSecondTypeforAll(pokemons, i);
-        bgColorGreen(i);
-    }   
+    }
 }
 
+/*let isLoading = false;
+window.onscroll = async function () {
+    if (window.scrollY = document.body.scrollHeight && !isLoading) {
+        isLoading = true;
+        offset += 20;
+        await loadPokemon();
+        isLoading = false;
+    }
+}*/
+
+function loadMorePokemon() {
+    let container = document.getElementById('allPokemon2');
+    container.innerHTML = '';
+    offset += 20;
+    loadPokemon();
+}
 
 function openPopUp(i) {
     let SinglePokemon = document.getElementById('mainSinglePokemon');
@@ -208,15 +230,15 @@ function clearTheFields4() {
 
 
 
-function filterNames(pokemons) {
+function filterNames() {
     let search = document.getElementById('search').value
-    search = search.toLowerCase();  
+    search = search.toLowerCase();
     let container = document.getElementById('allPokemon2');
     container.innerHTML = '';
     for (let i = 0; i < pokemons.length; i++) {
-        let name = pokemons[i];
-        if (name.toLocaleLowerCase().includes(search)) {
-            list.innerHTML += searchResult(name, i)
+        let name = pokemons[i]['name'];
+        if (name.toLowerCase().includes(search)) {
+            container.innerHTML += searchResult(pokemons, i)
         }
     }
 }

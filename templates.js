@@ -14,7 +14,7 @@ function renderSinglePokemon(currentPokemon, i) {
             <div class="singleImgPokemon">
                 <img src="${currentPokemon['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonImage">
                 <nav class="stats">
-                    <a id="linkAbout" onclick="showAbout(${currentPokemon, i})" href="#">About</a>
+                    <a id="linkAbout" onclick="showAbout(${i})" href="#">About</a>
                     <a id="linkBaseStats"onclick="showBaseStats(${i})" href="#">Base Stats</a>
                     <a id="linkEvolution"onclick="showEvolution(${i})" href="#">Evolution</a>
                     <a id="linkMoves"onclick="showMoves(${i})" href="#">Moves</a>

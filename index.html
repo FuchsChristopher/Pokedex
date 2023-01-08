@@ -19,7 +19,7 @@
 <body onload="loadPokemon()">
     <div class="header">
         <span class="Text"><h1>Pokedex</h1></span>
-        <div><input type="text" id="search" onkeydown="filterNames(pokemons)" placeholder="Search your Favorit">
+        <div><input type="text" id="search" onkeydown="filterNames()" placeholder="Search your Favorit">
         </div>
     </div>
     <div id="mainSinglePokemon" class="mainSinglePokemon d-none" onclick="closeSinglePokemon()">
@@ -27,11 +27,12 @@
     <div id="allPokemon" class="allPokemon">
         <div id="allPokemon2" class="allPokemon2"></div>
     </div>
+    <button onclick="loadMorePokemon()">TEST</button>
+
 
     <div class="footer">
         <span class="Text"><h3>Pokedex create by Christopher Fuchs</h3></span>  
     </div>
-
 
 </body>
 

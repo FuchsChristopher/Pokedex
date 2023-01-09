@@ -17,21 +17,32 @@
 </head>
 
 <body onload="loadPokemon()">
-    <div class="header">
-        <span class="Text"><h1>Pokedex</h1></span>
-        <div><input type="text" id="search" onkeydown="filterNames()" placeholder="Search your Favorit">
+    <div id="header" class="header">
+        <span class="Text">
+            <h1 class="headText">Pokedex</h1>
+        </span>
+        <div><input type="text" class="search" id="search" onkeydown="filterNames()" placeholder="Search your Favorit">
         </div>
     </div>
+
+    <section id="isLoading" class="isLoading">
+        <img class="isLoadingImg" src="./img/pokeball.png">
+        <p>Pokémons are loading...</p>
+    </section>
+
     <div id="mainSinglePokemon" class="mainSinglePokemon d-none" onclick="closeSinglePokemon()">
     </div>
     <div id="allPokemon" class="allPokemon">
         <div id="allPokemon2" class="allPokemon2"></div>
     </div>
-    <button onclick="loadMorePokemon()">TEST</button>
+    <div class="loadDiv">
+        <button class="loadBtn" id="loadBtn" onclick="loadMorePokemon()">Load more</button>
+    </div>
 
-
-    <div class="footer">
-        <span class="Text"><h3>Pokedex create by Christopher Fuchs</h3></span>  
+    <div id="footer" class="footer">
+        <span class="Text">
+            <h3>Pokedex create by Christopher Fuchs</h3>
+        </span>
     </div>
 
 </body>

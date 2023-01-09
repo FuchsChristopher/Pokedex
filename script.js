@@ -2,6 +2,9 @@ let pokemons = [];
 let offset = 0;
 
 async function loadPokemon() {
+    let allPokemon3 = document.getElementById('allPokemon');
+    let load = document.getElementById('isLoading');
+
     let url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`;
     let response = await fetch(url);
     pokemon = await response.json();
@@ -10,9 +13,12 @@ async function loadPokemon() {
         let individualResponse = await fetch(allPokemon);
         currentPokemon = await individualResponse.json();
         pokemons.push(currentPokemon);
-
+        loadingNow();
     }
     renderAllPokemon1(pokemons);
+    load.classList.add('d-none');
+    allPokemon3.classList.remove('d-none');
+    document.getElementById('loadBtn').classList.remove('d-none');
 }
 
 
@@ -41,17 +47,29 @@ function loadMorePokemon() {
     loadPokemon();
 }
 
+function loadingNow() {
+    let allPokemon3 = document.getElementById('allPokemon');
+    allPokemon3.classList.add('d-none');
+    document.getElementById('loadBtn').classList.add('d-none');
+
+    let load = document.getElementById('isLoading');
+    load.classList.remove('d-none');
+}
+
 function openPopUp(i) {
     let SinglePokemon = document.getElementById('mainSinglePokemon');
     SinglePokemon.innerHTML = '';
     let currentPokemon = pokemons[i];
-
     SinglePokemon.innerHTML = renderSinglePokemon(currentPokemon, i);
-
     let openPopUp = document.getElementById('mainSinglePokemon');
     openPopUp.classList.remove('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
     closeAllPokemon.classList.add('d-none');
+    let closeHeader = document.getElementById('header');
+    closeHeader.classList.add('d-none');
+    let closeFooter = document.getElementById('footer');
+    closeFooter.classList.add('d-none');
+    document.getElementById('loadBtn').classList.add('d-none');
     checkSecondType(currentPokemon);
 }
 
@@ -61,10 +79,20 @@ function closeImg() {
     closePopUp.classList.add('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');
     closeAllPokemon.classList.remove('d-none');
+    let closeHeader = document.getElementById('header');
+    closeHeader.classList.remove('d-none');
+    let closeFooter = document.getElementById('footer');
+    closeFooter.classList.remove('d-none');
+    document.getElementById('loadBtn').classList.remove('d-none');
 }
 
 
 function closeSinglePokemon() {
+    let closeHeader = document.getElementById('header');
+    closeHeader.classList.remove('d-none');
+    let closeFooter = document.getElementById('footer');
+    closeFooter.classList.remove('d-none');
+    document.getElementById('loadBtn').classList.remove('d-none');
     let closePopUp = document.getElementById('mainSinglePokemon');
     closePopUp.classList.add('d-none');
     let closeAllPokemon = document.getElementById('allPokemon');

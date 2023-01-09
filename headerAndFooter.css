@@ -3,12 +3,34 @@
     justify-content: space-around;
     height: 15vh;
     align-items: center;
-    background-color: #dcf5f5;
+    background-color: #FB6C6C;
     margin-bottom: 15px;
 }
 
 .Text {
     font-size: 30px;
+}
+
+.search {
+    border: 2px solid transparent;
+    border-radius: 25px;
+    width: 181px;
+    height: 45px;
+    text-align: center;
+    outline: none;
+    background-image: url(./img/search.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 6px;
+}
+
+input:hover {
+    border: 2px solid orange
+}
+
+.headText {
+    text-shadow: 2px 2px 0 #4074b5, 2px -2px 0 #4074b5, -2px 2px 0 #4074b5, -2px -2px 0 #4074b5, 2px 0px 0 #4074b5, 0px 2px 0 #4074b5, -2px 0px 0 #4074b5, 0px -2px 0 #4074b5;
+    color: #FECA1B;
 }
 
 .footer {

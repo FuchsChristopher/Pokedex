@@ -4,7 +4,6 @@ let offset = 0;
 async function loadPokemon() {
     let allPokemon3 = document.getElementById('allPokemon');
     let load = document.getElementById('isLoading');
-
     let url = `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`;
     let response = await fetch(url);
     pokemon = await response.json();
@@ -27,18 +26,24 @@ function renderAllPokemon1(pokemons) {
         let allPokemon = document.getElementById('allPokemon2');
         allPokemon.innerHTML += renderAllPokemon(pokemons, i);
         checkSecondTypeforAll(pokemons, i);
+        checkTypeColor(pokemons, i);
     }
 }
 
-/*let isLoading = false;
-window.onscroll = async function () {
-    if (window.scrollY = document.body.scrollHeight && !isLoading) {
-        isLoading = true;
-        offset += 20;
-        await loadPokemon();
-        isLoading = false;
-    }
-}*/
+
+function checkTypeColor(pokemons, i) {
+    bgColorGrass(pokemons, i);
+    bgColorFire(pokemons, i);
+    bgColorWater(pokemons, i);
+    bgColorBug(pokemons, i);
+    bgColorNormal(pokemons, i);
+    bgColorPosion(pokemons, i);
+    bgColorElectric(pokemons, i);
+    bgColorGround(pokemons, i);
+    bgColorFairy(pokemons, i);
+    bgColorFighting(pokemons, i);
+}
+
 
 function loadMorePokemon() {
     let container = document.getElementById('allPokemon2');
@@ -55,6 +60,7 @@ function loadingNow() {
     let load = document.getElementById('isLoading');
     load.classList.remove('d-none');
 }
+
 
 function openPopUp(i) {
     let SinglePokemon = document.getElementById('mainSinglePokemon');
@@ -114,6 +120,7 @@ function checkSecondType(currentPokemon) {
         `;
     }
 }
+
 
 function checkSecondTypeforAll(pokemons, i) {
     let types = pokemons[i]['types'];
@@ -257,7 +264,6 @@ function clearTheFields4() {
 }
 
 
-
 function filterNames() {
     let search = document.getElementById('search').value
     search = search.toLowerCase();
@@ -267,6 +273,8 @@ function filterNames() {
         let name = pokemons[i]['name'];
         if (name.toLowerCase().includes(search)) {
             container.innerHTML += searchResult(pokemons, i)
+            checkTypeColor(pokemons, i);
         }
     }
+    
 }

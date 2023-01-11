@@ -14,34 +14,29 @@ async function loadPokemon() {
         pokemons.push(currentPokemon);
         loadingNow();
     }
-    renderAllPokemon1(pokemons);
+    renderAllPokemons(pokemons);
     load.classList.add('d-none');
     allPokemon3.classList.remove('d-none');
     document.getElementById('loadBtn').classList.remove('d-none');
 }
 
 
-function renderAllPokemon1(pokemons) {
+function renderAllPokemons(pokemons) {
     for (let i = 0; i < pokemons.length; i++) {
         let allPokemon = document.getElementById('allPokemon2');
         allPokemon.innerHTML += renderAllPokemon(pokemons, i);
         checkSecondTypeforAll(pokemons, i);
         checkTypeColor(pokemons, i);
+        checkButton(pokemons, i);
     }
 }
 
-
-function checkTypeColor(pokemons, i) {
-    bgColorGrass(pokemons, i);
-    bgColorFire(pokemons, i);
-    bgColorWater(pokemons, i);
-    bgColorBug(pokemons, i);
-    bgColorNormal(pokemons, i);
-    bgColorPosion(pokemons, i);
-    bgColorElectric(pokemons, i);
-    bgColorGround(pokemons, i);
-    bgColorFairy(pokemons, i);
-    bgColorFighting(pokemons, i);
+function checkButton(pokemons, i) {
+    let bgColors = pokemons[i]['types'][0]['type']['name'];
+    if (bgColors == 'dragon') {
+        let bgColor = document.getElementById(`loadDiv`);
+        bgColor.classList.add('d-none');
+    }
 }
 
 
@@ -77,6 +72,7 @@ function openPopUp(i) {
     closeFooter.classList.add('d-none');
     document.getElementById('loadBtn').classList.add('d-none');
     checkSecondType(currentPokemon);
+    checkTypeColorForSinglePokemon(currentPokemon);
 }
 
 

@@ -19,7 +19,7 @@
 }
 
 .bgPoison {
-    background-color: rgb(115, 56, 170);
+    background-color: rgb(93, 2, 177);
 }
 
 .bgElectric {
@@ -36,4 +36,24 @@
 
 .bgFighting {
     background-color: rgb(221, 84, 84);
+}
+
+.bgPsychic {
+    background-color: rgb(255, 97, 123);
+}
+
+.bgRock {
+    background-color: rgb(148, 119, 80);
+}
+
+.bgGhost {
+    background-color: rgb(131, 87, 172);
+}
+
+.bgIce {
+    background-color:rgb(133, 202, 246);
+}
+
+.bgDragon {
+    background-color: rgb(112, 56, 249);
 }

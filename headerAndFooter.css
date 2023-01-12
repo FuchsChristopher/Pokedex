@@ -3,10 +3,9 @@
     top: 0;
     right: 0;
     left: 0;
-    z-index: 2;
+    z-index: 4;
     display: flex;
     justify-content: space-around;
-    height: 15vh;
     align-items: center;
     background-color: #FB6C6C;
     margin-bottom: 15px;

@@ -262,7 +262,7 @@ function clearTheFields4() {
 
 function filterNames() {
     let search = document.getElementById('search').value
-    search = search.toLowerCase();
+    search = search.toLowerCase().trim();
     let container = document.getElementById('allPokemon2');
     container.innerHTML = '';
     for (let i = 0; i < pokemons.length; i++) {

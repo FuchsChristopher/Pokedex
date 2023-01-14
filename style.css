@@ -29,6 +29,7 @@ body {
 
 .pokemonName {
     width: 200px;
+    margin-top: -15px;
 }
 
 .allPokemonShow h1:hover {
@@ -37,8 +38,7 @@ body {
 
 .pokemonImage {
     width: 233px;
-    position: absolute;
-    top: 207px;
+    margin-top: -200px;
 }
 
 .closeImg {
@@ -47,7 +47,7 @@ body {
 }
 
 .pokemonPopUp {
-    width: 50%;
+    width: 30rem;
 }
 
 .mainSinglePokemon {
@@ -91,7 +91,7 @@ body {
 }
 
 .stats {
-    margin-top: 50px;
+    margin-top: 8px;
     display: flex;
     justify-content: space-between;
     width: 92%;
@@ -158,7 +158,6 @@ a:hover {
 
 .allPokemonShow {
     margin: 5px;
-    height: 41vh;
     background-color: #FB6C6C;
     border-radius: 40px;
 }
@@ -170,7 +169,6 @@ a:hover {
 }
 
 .pokemonAll2 {
-    min-height: 35vh;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -179,7 +177,7 @@ a:hover {
 }
 
 .typeAllPokemon {
-    margin-top: -238px;
+    margin-top: -160px;
     background-color: hsl(240deg 7% 97% / 22%);
     border-radius: 20px;
     width: 70px;
@@ -194,10 +192,11 @@ a:hover {
 }
 
 .pokemonAllImage {
-    width: 181px;
-    position: absolute;
+    height: 9rem;
+    max-width: 14rem;
+    margin-top: 32px;
+    margin-left: 67px;
     cursor: pointer;
-    margin-top: 15px;
 }
 
 .typePokemonAll {

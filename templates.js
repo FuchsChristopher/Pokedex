@@ -44,9 +44,9 @@ function renderAllPokemon(pokemons, i) {
             </div>
             <div class="typeAllPokemon">
                 <p class="textType">${pokemons[i]['types'][0]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][0]['type']['name'].slice(1)}</p>
-                <img src="${pokemons[i]['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
                 <div id="secondTypeforAll${i}" class="typeAllPokemon2"></div>
                 </div>
+                <img src="${pokemons[i]['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
         </div>
     </div>
     `;

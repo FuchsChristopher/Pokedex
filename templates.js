@@ -138,19 +138,19 @@ function showMoves2(currentPokemon) {
 
 function searchResult(pokemons, i) {
     return `
-    <div onclick="openPopUp(${i})" id="allPokemonShow${i}" class="allPokemonShow ">
-        <div id="pokemonPopUp" class="pokemonAll">
-            <div class="pokemonAll2">
-                <h1 id="pokemonName" class="pokemonName">${pokemons[i]['name'].charAt(0).toUpperCase() + pokemons[i]['name'].slice(1)}</h1>
-                <div class="currentId">#${('000' + pokemons[i]['id']).slice(-3)}
-                </div>
+    <div onclick="openPopUp(${i})" id="allPokemonShow${i}" class="allPokemonShow">
+    <div id="pokemonPopUp" class="pokemonAll">
+        <div class="pokemonAll2">
+            <h1 id="pokemonName" class="pokemonName">${pokemons[i]['name'].charAt(0).toUpperCase() + pokemons[i]['name'].slice(1)}</h1>
+            <div class="currentId">#${('000' + pokemons[i]['id']).slice(-3)}
             </div>
-            <div class="typeAllPokemon">
-                <p class="textType">${pokemons[i]['types'][0]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][0]['type']['name'].slice(1)}</p>
-                <img src="${pokemons[i]['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
-                <div id="secondTypeforAll${i}" class="typeAllPokemon2"></div>
-                </div>
         </div>
+        <div class="typeAllPokemon">
+            <p class="textType">${pokemons[i]['types'][0]['type']['name'].charAt(0).toUpperCase() + pokemons[i]['types'][0]['type']['name'].slice(1)}</p>
+            <div id="secondTypeforAll${i}" class="typeAllPokemon2"></div>
+            </div>
+            <img src="${pokemons[i]['sprites']['other']['official-artwork']['front_default']}" id="pokemonImage" class="pokemonAllImage">
     </div>
-    `;
+</div>
+`;
 }

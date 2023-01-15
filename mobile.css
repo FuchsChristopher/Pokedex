@@ -1,3 +1,19 @@
+@media (max-width:625px) {
+    .searchField {
+        margin-top: -25px;
+        margin-bottom: 25px;
+    }
+
+    .header {
+        flex-direction: column;
+    }
+
+    .footer {
+        height: 26vh !important;
+        text-align: center;
+    }
+}
+
 @media (max-width:415px) {
     .searchField {
         margin-top: -25px;
@@ -24,18 +40,15 @@
         flex-direction: column;
     }
 
-    .typeAllPokemon {
-        margin-top: -136px;
-    }
-
-    .pokemonAllImage {
-        margin-top: -4px;
-        margin-left: 84px;
-    }
-
     .footer {
         height: 26vh !important;
         text-align: center;
     }
 
+}
+
+@media (max-width:281px) {
+    .pokemonName {
+        width: 188px;
+    }
 }

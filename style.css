@@ -6,7 +6,7 @@ body {
 }
 
 .pokemonPopUp2 {
-    min-height: 55vh;
+    min-height: 28rem;
     background-color: #FB6C6C;
     color: white;
     display: flex;
@@ -53,7 +53,7 @@ body {
 .mainSinglePokemon {
     display: flex;
     justify-content: center;
-    height: 90vh;
+    height: 46rem;
 }
 
 .typePokemon {
@@ -62,7 +62,7 @@ body {
     border-radius: 20px;
     width: 70px;
     text-align: center;
-    height: 3vh;
+    height: 25px;
     margin-left: 25px;
 }
 
@@ -72,21 +72,21 @@ body {
     border-radius: 20px;
     width: 70px;
     text-align: center;
-    height: 3vh;
+    height: 25px;
     margin-left: 85px;
 }
 
 .textType {
     color: white;
     margin-top: 0px;
-    height: 3vh;
+    height: 24px;
 
 }
 
 .currentId {
     display: flex;
     align-items: center;
-    height: 16vh;
+    height: 123px;
     margin-top: 37px;
 }
 
@@ -177,12 +177,12 @@ a:hover {
 }
 
 .typeAllPokemon {
-    margin-top: -160px;
+    margin-top: -150px;
     background-color: hsl(240deg 7% 97% / 22%);
     border-radius: 20px;
     width: 70px;
     text-align: center;
-    height: 3vh;
+    height: 25px;
     margin-left: 25px;
 }
 

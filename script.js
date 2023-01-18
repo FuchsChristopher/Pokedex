@@ -71,6 +71,7 @@ function openPopUp(i) {
     let closeFooter = document.getElementById('footer');
     closeFooter.classList.add('d-none');
     document.getElementById('loadBtn').classList.add('d-none');
+    showAbout(i);
     checkSecondType(currentPokemon);
     checkTypeColorForSinglePokemon(currentPokemon);
 }

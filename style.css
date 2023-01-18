@@ -32,10 +32,6 @@ body {
     margin-top: -15px;
 }
 
-.allPokemonShow h1:hover {
-    filter: brightness(0.8);
-}
-
 .pokemonImage {
     width: 233px;
     margin-top: -200px;
@@ -157,9 +153,15 @@ a:hover {
 }
 
 .allPokemonShow {
-    margin: 5px;
+    margin: 15px;
     background-color: #FB6C6C;
     border-radius: 40px;
+    transition: 125ms ease-in-out;
+}
+
+.allPokemonShow:hover {
+    transform: scale(1.1);
+    transition: 125ms ease-in-out;
 }
 
 .allPokemon2 {
@@ -206,6 +208,7 @@ a:hover {
     text-align: center;
     height: 3vh;
 }
+
 
 .loadBtn {
     border-radius: 25px;

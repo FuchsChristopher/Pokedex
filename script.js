@@ -40,12 +40,12 @@ function checkButton(pokemons, i) {
 }
 
 
-function loadMorePokemon(pokemons, i) {
+function loadMorePokemon() {
     let container = document.getElementById('allPokemon2');
     container.innerHTML = '';
     offset += 20;
     loadPokemon();
-    
+
 }
 
 function loadingNow() {
@@ -200,22 +200,6 @@ function removeHover() {
 }
 
 
-function filterNames() {
-    let search = document.getElementById('search').value
-    search = search.toLowerCase().trim();
-    let container = document.getElementById('allPokemon2');
-    container.innerHTML = '';
-    for (let i = 0; i < pokemons.length; i++) {
-        let name = pokemons[i]['name'];
-        if (name.toLowerCase().includes(search)) {
-            container.innerHTML += searchResult(pokemons, i)
-            checkTypeColor(pokemons, i);
-            checkSecondTypeforAll(pokemons, i);
-        }
-    }
-}
-
-
 function addHoverEffect(clickedMenu) {
     if (clickedMenu == 'types') {
         let linksabout = document.getElementById(`linkAbout`);
@@ -229,5 +213,21 @@ function addHoverEffect(clickedMenu) {
     } if (clickedMenu == 'moves') {
         let movesField2 = document.getElementById(`linkMoves`);
         movesField2.classList.add('hoverKeep');
+    }
+}
+
+
+function filterNames() {
+    let search = document.getElementById('search').value
+    search = search.toLowerCase().trim();
+    let container = document.getElementById('allPokemon2');
+    container.innerHTML = '';
+    for (let i = 0; i < pokemons.length; i++) {
+        let name = pokemons[i]['name'];
+        if (name.toLowerCase().includes(search)) {
+            container.innerHTML += searchResult(pokemons, i)
+            checkTypeColor(pokemons, i);
+            checkSecondTypeforAll(pokemons, i);
+        }
     }
 }
